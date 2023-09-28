@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty_and_flutter/resources/strings/global_strings.dart';
-import 'package:rick_and_morty_and_flutter/ui/home_screen/home_screen.dart';
+import 'package:rick_and_morty_and_flutter/persistence/strings/global_strings.dart';
+import 'package:rick_and_morty_and_flutter/presentation/home_screen/home_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   WelcomeScreen({Key? key, required this.title}) : super(key: key);

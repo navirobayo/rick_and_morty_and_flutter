@@ -1,4 +1,4 @@
-import 'package:rick_and_morty_and_flutter/features/characters/models/character_data_ui_model.dart';
+import 'package:rick_and_morty_and_flutter/models/character_data_ui_model.dart';
 import 'package:dio/dio.dart';
 
 class CharactersRepo {

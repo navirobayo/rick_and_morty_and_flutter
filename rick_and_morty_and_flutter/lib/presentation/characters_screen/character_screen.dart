@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rick_and_morty_and_flutter/features/characters/bloc/characters_bloc.dart';
+import 'package:rick_and_morty_and_flutter/blocs/characters_bloc/characters_bloc.dart';
 
 class CharactersScreen extends StatefulWidget {
   const CharactersScreen({super.key});

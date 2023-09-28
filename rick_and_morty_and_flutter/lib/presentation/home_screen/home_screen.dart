@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty_and_flutter/resources/common_widgets/cool_route_button.dart';
-import 'package:rick_and_morty_and_flutter/resources/common_widgets/cool_text_for_route_button.dart';
-import 'package:rick_and_morty_and_flutter/resources/strings/global_strings.dart';
-import 'package:rick_and_morty_and_flutter/ui/character_search_screen/character_search_screen.dart';
-import 'package:rick_and_morty_and_flutter/ui/characters_screen/character_screen.dart';
-import 'package:rick_and_morty_and_flutter/ui/episodes_screen/episodes_screen.dart';
+import 'package:rick_and_morty_and_flutter/persistence/common_widgets/cool_route_button.dart';
+import 'package:rick_and_morty_and_flutter/persistence/common_widgets/cool_text_for_route_button.dart';
+import 'package:rick_and_morty_and_flutter/persistence/strings/global_strings.dart';
+import 'package:rick_and_morty_and_flutter/presentation/character_search_screen/character_search_screen.dart';
+import 'package:rick_and_morty_and_flutter/presentation/characters_screen/character_screen.dart';
+import 'package:rick_and_morty_and_flutter/presentation/episodes_screen/episodes_screen.dart';
 
 //* Main features of the app.
 
