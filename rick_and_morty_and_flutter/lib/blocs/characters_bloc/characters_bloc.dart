@@ -16,9 +16,14 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   FutureOr<void> charactersEventLoad(
       CharactersEventLoad event, Emitter<CharactersState> emit) async {
     emit(CharactersFetchingLoading());
-    List<CharacterDataUiModel> characters =
-        await CharactersRepo.getCharacters();
 
-    emit(CharactersFetchingSuccess(characters));
+    try {
+      List<CharacterDataUiModel> characters =
+          await CharactersRepo.getCharacters(page: event.page);
+
+      emit(CharactersFetchingSuccess(characters));
+    } catch (e) {
+      emit(CharactersFetchingError(e.toString()));
+    }
   }
 }

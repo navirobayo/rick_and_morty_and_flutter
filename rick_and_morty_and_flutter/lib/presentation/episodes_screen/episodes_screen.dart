@@ -55,16 +55,22 @@ class _EpisodesScreenState extends State<EpisodesScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            if (currentPage > 1)
-              ElevatedButton(
-                onPressed: () {
+            ElevatedButton(
+              onPressed: () {
+                if (currentPage > 1) {
                   setState(() {
                     currentPage--;
                   });
                   episodesBloc.add(EpisodesEventLoad(page: currentPage));
-                },
-                child: Text('Previous Page'),
-              ),
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('You reach the beginning')),
+                  );
+                }
+              },
+              child: Text('Previous Page'),
+            ),
+            Text('Page $currentPage'),
             ElevatedButton(
               onPressed: () {
                 setState(() {

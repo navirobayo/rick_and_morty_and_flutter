@@ -11,6 +11,7 @@ class CharactersScreen extends StatefulWidget {
 
 class _CharactersScreenState extends State<CharactersScreen> {
   final CharactersBloc charactersBloc = CharactersBloc();
+  int currentPage = 1;
 
   @override
   void initState() {
@@ -49,6 +50,38 @@ class _CharactersScreenState extends State<CharactersScreen> {
               return Center(child: CircularProgressIndicator());
           }
         },
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                if (currentPage > 1) {
+                  setState(() {
+                    currentPage--;
+                  });
+                  charactersBloc.add(CharactersEventLoad(page: currentPage));
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('You reach the beginning')),
+                  );
+                }
+              },
+              child: Text('Previous Page'),
+            ),
+            Text('Page $currentPage'),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  currentPage++;
+                });
+                charactersBloc.add(CharactersEventLoad(page: currentPage));
+              },
+              child: Text('Next Page'),
+            ),
+          ],
+        ),
       ),
     );
   }
