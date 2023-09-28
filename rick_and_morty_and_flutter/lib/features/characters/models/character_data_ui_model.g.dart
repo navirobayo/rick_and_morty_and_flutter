@@ -1,12 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'rick_and_morty_data.dart';
+part of 'character_data_ui_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Character _$CharacterFromJson(Map<String, dynamic> json) => Character(
+CharacterDataUiModel _$CharacterDataUiModelFromJson(
+        Map<String, dynamic> json) =>
+    CharacterDataUiModel(
       id: json['id'] as int,
       name: json['name'] as String,
       status: json['status'] as String,
@@ -22,7 +24,9 @@ Character _$CharacterFromJson(Map<String, dynamic> json) => Character(
       created: json['created'] as String,
     );
 
-Map<String, dynamic> _$CharacterToJson(Character instance) => <String, dynamic>{
+Map<String, dynamic> _$CharacterDataUiModelToJson(
+        CharacterDataUiModel instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'status': instance.status,
@@ -35,31 +39,4 @@ Map<String, dynamic> _$CharacterToJson(Character instance) => <String, dynamic>{
       'episode': instance.episode,
       'url': instance.url,
       'created': instance.created,
-    };
-
-Info _$InfoFromJson(Map<String, dynamic> json) => Info(
-      count: json['count'] as int,
-      pages: json['pages'] as int,
-      next: json['next'] as String?,
-      prev: json['prev'] as String?,
-    );
-
-Map<String, dynamic> _$InfoToJson(Info instance) => <String, dynamic>{
-      'count': instance.count,
-      'pages': instance.pages,
-      'next': instance.next,
-      'prev': instance.prev,
-    };
-
-ResponseData _$ResponseDataFromJson(Map<String, dynamic> json) => ResponseData(
-      info: Info.fromJson(json['info'] as Map<String, dynamic>),
-      results: (json['results'] as List<dynamic>)
-          .map((e) => Character.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-
-Map<String, dynamic> _$ResponseDataToJson(ResponseData instance) =>
-    <String, dynamic>{
-      'info': instance.info,
-      'results': instance.results,
     };

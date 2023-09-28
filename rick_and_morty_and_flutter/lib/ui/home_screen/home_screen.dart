@@ -3,7 +3,7 @@ import 'package:rick_and_morty_and_flutter/resources/common_widgets/cool_route_b
 import 'package:rick_and_morty_and_flutter/resources/common_widgets/cool_text_for_route_button.dart';
 import 'package:rick_and_morty_and_flutter/resources/strings/global_strings.dart';
 import 'package:rick_and_morty_and_flutter/ui/character_search_screen/character_search_screen.dart';
-import 'package:rick_and_morty_and_flutter/ui/characters_screen/characters_screen.dart';
+import 'package:rick_and_morty_and_flutter/ui/characters_screen/character_screen.dart';
 import 'package:rick_and_morty_and_flutter/ui/episodes_screen/episodes_screen.dart';
 
 //* Main features of the app.
