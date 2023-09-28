@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dio/dio.dart'; // Import Dio for HTTP requests
+import 'package:dio/dio.dart';
 import 'package:rick_and_morty_and_flutter/data/models/rick_and_morty_api.dart';
 import 'package:rick_and_morty_and_flutter/data/models/rick_and_morty_data.dart';
 
