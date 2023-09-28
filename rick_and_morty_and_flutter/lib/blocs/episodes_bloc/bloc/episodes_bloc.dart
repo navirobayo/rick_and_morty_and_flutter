@@ -17,8 +17,14 @@ class EpisodesBloc extends Bloc<EpisodesEvent, EpisodesState> {
   FutureOr<void> episodesEventLoad(
       EpisodesEventLoad event, Emitter<EpisodesState> emit) async {
     emit(EpisodesFetchingLoading());
-    List<EpisodeDataUiModel> episodes = await EpisodesRepo.getEpisodes();
 
-    emit(EpisodesFetchingSuccess(episodes));
+    try {
+      List<EpisodeDataUiModel> episodes =
+          await EpisodesRepo.getEpisodes(page: event.page);
+
+      emit(EpisodesFetchingSuccess(episodes));
+    } catch (e) {
+      emit(EpisodesFetchingError(e.toString()));
+    }
   }
 }

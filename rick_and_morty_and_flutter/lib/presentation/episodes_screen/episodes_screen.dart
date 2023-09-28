@@ -11,6 +11,7 @@ class EpisodesScreen extends StatefulWidget {
 
 class _EpisodesScreenState extends State<EpisodesScreen> {
   final EpisodesBloc episodesBloc = EpisodesBloc();
+  int currentPage = 1;
 
   @override
   void initState() {
@@ -49,6 +50,32 @@ class _EpisodesScreenState extends State<EpisodesScreen> {
               return Center(child: CircularProgressIndicator());
           }
         },
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            if (currentPage > 1)
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    currentPage--;
+                  });
+                  episodesBloc.add(EpisodesEventLoad(page: currentPage));
+                },
+                child: Text('Previous Page'),
+              ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  currentPage++;
+                });
+                episodesBloc.add(EpisodesEventLoad(page: currentPage));
+              },
+              child: Text('Next Page'),
+            ),
+          ],
+        ),
       ),
     );
   }
