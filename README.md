@@ -5,7 +5,7 @@
   <img src="https://github.com/navirobayo/RickAndMortyAndFlutter/blob/main/repoassets/cover3.png" width="350" title="hover text">
 </p>
 
-Este documento está diseñado para explicar la estructura de la aplicación la cual utiliza la información disponible en la API de Rick y Morty. Si quieres instalar la aplicación en tu celular puedes hacer lo directamente con el archivo .apk que puedes descargar acá: 
+Este documento está diseñado para explicar la estructura de la aplicación la cual utiliza la información disponible en la API de Rick y Morty. Si quieres instalar la aplicación en tu celular puedes hacerlo directamente con el archivo .apk que puedes descargar acá: 
 [[+]](https://github.com/navirobayo/RickAndMortyAndFlutter/blob/main/repoassets/app-release.apk)
 
 La aplicación está escrita en inglés, principalmente porque la información de la API también lo está. Los comentarios dentro de la aplicación también están en ingles y en mi caso he creado la aplicación dentro de Visual Studio Code, donde utilizo la extensión "BetterComments" para resaltar ciertos comentarios. 
@@ -27,6 +27,8 @@ La aplicación está escrita en inglés, principalmente porque la información d
 - persistence: Contiene archivos que son utilizados en toda la aplicación.
 
 - presentation: Contiene la interfaz de la aplicación (UI).
+
+- repository: Contiene los archivos que se solicitan y reciben información de la API
 
 # Acerca de la app:
 
