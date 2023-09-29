@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty_and_flutter/persistence/common_widgets/cool_route_button.dart';
 import 'package:rick_and_morty_and_flutter/persistence/common_widgets/cool_text_for_route_button.dart';
+import 'package:rick_and_morty_and_flutter/persistence/rick_and_morty_custom_icons/ra_m_custom_icons_icons.dart';
 import 'package:rick_and_morty_and_flutter/persistence/strings/global_strings.dart';
 import 'package:rick_and_morty_and_flutter/presentation/characters_screen/characters_screen.dart';
 import 'package:rick_and_morty_and_flutter/presentation/episodes_screen/episodes_screen.dart';
@@ -58,12 +59,12 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         CoolRouteButton(
                             context: context,
-                            icon: Icons.person,
+                            icon: RaMCustomIcons.rickface1,
                             page: CharactersScreen()),
                         SizedBox(height: defaultCardSpacer),
                         CoolRouteButton(
                             context: context,
-                            icon: Icons.memory_sharp,
+                            icon: RaMCustomIcons.mortyface1,
                             page: EpisodesScreen()),
                         SizedBox(height: defaultCardSpacer),
                         CoolRouteButton(

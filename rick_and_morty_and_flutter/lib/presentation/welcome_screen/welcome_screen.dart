@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty_and_flutter/persistence/strings/global_strings.dart';
 import 'package:rick_and_morty_and_flutter/presentation/home_screen/home_screen.dart';
+import 'package:rick_and_morty_and_flutter/persistence/rick_and_morty_custom_icons/ra_m_custom_icons_icons.dart';
 
 class WelcomeScreen extends StatelessWidget {
   WelcomeScreen({Key? key, required this.title}) : super(key: key);
@@ -49,7 +50,7 @@ class WelcomeScreen extends StatelessWidget {
             ),
           );
         },
-        child: const Icon(Icons.android),
+        child: const Icon(RaMCustomIcons.mortyface1),
       ),
     );
   }

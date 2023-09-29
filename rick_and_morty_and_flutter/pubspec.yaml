@@ -32,3 +32,8 @@ flutter:
 
   assets:
      - images/cover.png
+
+  fonts:
+  - family:  RaMCustomIcons
+    fonts:
+     - asset: assets/fonts/RaMCustomIcons.ttf
