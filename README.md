@@ -12,11 +12,11 @@ La aplicación está escrita en inglés, principalmente porque la información d
 
 # Características principales:
 
-- Lista o exploración de personjes.
+- Lista o exploración de personajes.
   
 - Lista o exploración de episodios.
   
-- Busqueda de personajes por nombre.
+- Búsqueda de personajes por nombre.
 
 # Estructura de las carpetas:
 
