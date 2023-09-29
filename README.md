@@ -36,4 +36,4 @@ La app se construyo desde una aproximación BloC, epecialmente para manejar la c
 
 Los "Blocs" se utilizan en las funciones principales de la app, cada funcionalidad tiene un "Bloc" diferente. 
 
-Algunos de los archivos tienen comentarios clarificando algunos detalles. Que disfrutes!
+Algunos de los archivos tienen comentarios clarificando algunos detalles. ¡Que disfrutes!
