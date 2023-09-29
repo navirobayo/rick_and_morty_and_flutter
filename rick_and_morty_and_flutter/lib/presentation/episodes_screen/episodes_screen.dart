@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty_and_flutter/blocs/episodes_bloc/bloc/episodes_bloc.dart';
 import 'package:rick_and_morty_and_flutter/presentation/episode_detail_screen/episode_detail_screen.dart';
 
+//* Lists of episodes.
+
 class EpisodesScreen extends StatefulWidget {
   const EpisodesScreen({super.key});
 

@@ -7,7 +7,7 @@ import 'package:rick_and_morty_and_flutter/presentation/characters_screen/charac
 import 'package:rick_and_morty_and_flutter/presentation/episodes_screen/episodes_screen.dart';
 import 'package:rick_and_morty_and_flutter/presentation/search_characters/search_characters_screen.dart';
 
-//* Main features of the app.
+//* Main menu of the app.
 
 double defaultTextSpacer = 60;
 double defaultCardSpacer = 20;

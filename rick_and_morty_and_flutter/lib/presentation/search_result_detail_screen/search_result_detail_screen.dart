@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty_and_flutter/models/search_characters_data_ui_model.dart';
-import 'package:dio/dio.dart'; // Import Dio for making API requests
+import 'package:dio/dio.dart';
+
+//* Detailed view of the character after the search.
 
 class SearchResultDetailScreen extends StatefulWidget {
   final SearchCharactersDataUiModel searchCharacter;

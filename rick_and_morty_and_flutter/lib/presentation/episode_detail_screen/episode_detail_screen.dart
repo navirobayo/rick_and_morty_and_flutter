@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:rick_and_morty_and_flutter/models/episode_data_ui_model.dart';
 import 'package:dio/dio.dart'; // Import Dio for making API requests
 
+//* Detailed view of the episode.
+
+// The user can see some name, air_date and episode code
+// and also a list of the characters that appear on the episode.
+// If the user presses on the list of characters nothing will happen. The list its just view only.
+
 class EpisodeDetailScreen extends StatefulWidget {
   final EpisodeDataUiModel episode;
 

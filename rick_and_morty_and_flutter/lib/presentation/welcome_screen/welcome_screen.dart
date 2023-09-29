@@ -3,6 +3,8 @@ import 'package:rick_and_morty_and_flutter/persistence/strings/global_strings.da
 import 'package:rick_and_morty_and_flutter/presentation/home_screen/home_screen.dart';
 import 'package:rick_and_morty_and_flutter/persistence/rick_and_morty_custom_icons/ra_m_custom_icons_icons.dart';
 
+//* Welcome screen.
+
 class WelcomeScreen extends StatelessWidget {
   WelcomeScreen({Key? key, required this.title}) : super(key: key);
 
@@ -45,12 +47,13 @@ class WelcomeScreen extends StatelessWidget {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => HomeScreen(
-                username: username, // Pass the username to the HomeScreen
+                username: username, //! Not used at the moment.
               ),
             ),
           );
         },
-        child: const Icon(RaMCustomIcons.mortyface1),
+        child: const Icon(RaMCustomIcons
+            .mortyface1), //! A personalized icon that I think looks cool.
       ),
     );
   }

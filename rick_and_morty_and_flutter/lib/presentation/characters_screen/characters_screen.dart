@@ -3,6 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty_and_flutter/blocs/characters_bloc/characters_bloc.dart';
 import 'package:rick_and_morty_and_flutter/presentation/character_detail_screen/character_detail_screen.dart';
 
+//* List of characters feature.
+// If the user preses one of the items,
+// the app will take the information and wil render it
+// in the "visualizator" screen.
+
 class CharactersScreen extends StatefulWidget {
   const CharactersScreen({super.key});
 

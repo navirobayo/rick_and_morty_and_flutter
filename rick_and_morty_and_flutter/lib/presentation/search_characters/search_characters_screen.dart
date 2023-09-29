@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty_and_flutter/blocs/search_characters_bloc/bloc/search_characters_bloc.dart';
-import 'package:rick_and_morty_and_flutter/presentation/character_detail_screen/character_detail_screen.dart';
 import 'package:rick_and_morty_and_flutter/presentation/search_result_detail_screen/search_result_detail_screen.dart';
+
+//* Character search feature.
 
 class SearchCharactersScreen extends StatefulWidget {
   const SearchCharactersScreen({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class _SearchCharactersScreenState extends State<SearchCharactersScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Search Characters')),
+      appBar: AppBar(title: const Text('Search Characters')),
       body: Column(
         children: [
           Padding(
