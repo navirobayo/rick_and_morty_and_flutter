@@ -8,7 +8,7 @@ class FlutterAtariTheme {
   static const Color _primaryColor = Color.fromARGB(255, 47, 239, 9);
   static const Color _primaryInverseColor = Color.fromARGB(255, 60, 69, 123);
   static const Color _onSurfaceColor = Color.fromARGB(255, 47, 239, 9);
-  static const Color _onSurfaceVariant = Color.fromARGB(255, 86, 213, 248);
+  static const Color _onSurfaceVariant = Color.fromARGB(255, 233, 230, 137);
   static const Color _onPrimaryColor = Color.fromARGB(255, 255, 121, 3);
   static const Color _surfaceColor = Color.fromARGB(255, 60, 69, 123);
   static const Color _backgroundColor = Color(0xFF373C4B);

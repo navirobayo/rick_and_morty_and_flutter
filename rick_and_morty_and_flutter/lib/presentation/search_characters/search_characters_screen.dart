@@ -61,8 +61,8 @@ class _SearchCharactersScreenState extends State<SearchCharactersScreen> {
                         return ListTile(
                           title:
                               Text(successState.searchCharacters[index].name),
-                          subtitle:
-                              Text(successState.searchCharacters[index].status),
+                          subtitle: Text(
+                              successState.searchCharacters[index].species),
                           onTap: () {
                             Navigator.push(
                               context,

@@ -23,7 +23,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Characters')),
+      appBar: AppBar(title: const Text('Characters')),
       body: BlocConsumer<CharactersBloc, CharactersState>(
         bloc: charactersBloc,
         listenWhen: (previous, current) => current is CharactersActionState,
@@ -43,7 +43,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
                 itemBuilder: (context, index) {
                   return ListTile(
                       title: Text(state.characters[index].name),
-                      subtitle: Text(state.characters[index].status),
+                      subtitle: Text(state.characters[index].species),
                       onTap: () {
                         Navigator.push(
                           context,
@@ -56,7 +56,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
                 },
               );
             default:
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
           }
         },
       ),
@@ -73,11 +73,11 @@ class _CharactersScreenState extends State<CharactersScreen> {
                   charactersBloc.add(CharactersEventLoad(page: currentPage));
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('You reach the beginning')),
+                    const SnackBar(content: Text('You are in page 1!')),
                   );
                 }
               },
-              child: Text('Previous Page'),
+              child: const Text('<-'),
             ),
             Text('Page $currentPage'),
             ElevatedButton(
@@ -87,7 +87,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
                 });
                 charactersBloc.add(CharactersEventLoad(page: currentPage));
               },
-              child: Text('Next Page'),
+              child: const Text('->'),
             ),
           ],
         ),

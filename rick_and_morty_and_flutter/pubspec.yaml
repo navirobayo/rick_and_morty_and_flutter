@@ -32,6 +32,10 @@ flutter:
 
   assets:
      - images/cover.png
+     - images/cover2.png
+     - images/cover3.png
+     - images/cover4.png
+     - images/cover5.png
 
   fonts:
   - family:  RaMCustomIcons

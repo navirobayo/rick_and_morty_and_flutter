@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty_and_flutter/models/character_data_ui_model.dart';
 import 'package:rick_and_morty_and_flutter/models/search_characters_data_ui_model.dart';
+import 'package:dio/dio.dart'; // Import Dio for making API requests
 
 class CharacterDetailScreen extends StatefulWidget {
   final CharacterDataUiModel character;
@@ -14,6 +15,31 @@ class CharacterDetailScreen extends StatefulWidget {
 
 class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   bool _isExpanded = false;
+  List<String> episodeNames = []; // List to store episode names
+
+  @override
+  void initState() {
+    super.initState();
+    loadEpisodeNames(); // Fetch episode names when the screen loads
+  }
+
+  // Function to fetch episode names
+  void loadEpisodeNames() async {
+    final dio = Dio();
+    final List<String> episodeUrls = widget.character.episode;
+
+    for (String url in episodeUrls) {
+      try {
+        Response response = await dio.get(url);
+        final episodeName = response.data['name'];
+        setState(() {
+          episodeNames.add(episodeName);
+        });
+      } catch (e) {
+        print('Error fetching episode details: $e');
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,13 +93,12 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                     );
                   },
                   body: SingleChildScrollView(
-                    // Wrap the content in SingleChildScrollView
                     child: Column(
-                      children: widget.character.episode
-                          .map((episodeUrl) => ListTile(
-                                title: Text(episodeUrl),
-                              ))
-                          .toList(),
+                      children: episodeNames.map((episodeName) {
+                        return ListTile(
+                          title: Text(episodeName),
+                        );
+                      }).toList(),
                     ),
                   ),
                   isExpanded: _isExpanded,

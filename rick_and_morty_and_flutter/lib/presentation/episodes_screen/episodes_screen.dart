@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty_and_flutter/blocs/episodes_bloc/bloc/episodes_bloc.dart';
+import 'package:rick_and_morty_and_flutter/presentation/episode_detail_screen/episode_detail_screen.dart';
 
 class EpisodesScreen extends StatefulWidget {
   const EpisodesScreen({super.key});
@@ -43,6 +44,16 @@ class _EpisodesScreenState extends State<EpisodesScreen> {
                   return ListTile(
                     title: Text(state.episodes[index].name),
                     subtitle: Text(state.episodes[index].air_date),
+                    trailing: Text(state.episodes[index].episode),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => EpisodeDetailScreen(
+                              episode: state.episodes[index]),
+                        ),
+                      );
+                    },
                   );
                 },
               );
@@ -64,11 +75,11 @@ class _EpisodesScreenState extends State<EpisodesScreen> {
                   episodesBloc.add(EpisodesEventLoad(page: currentPage));
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('You reach the beginning')),
+                    SnackBar(content: Text('You are in page 1!')),
                   );
                 }
               },
-              child: Text('Previous Page'),
+              child: Text('<-'),
             ),
             Text('Page $currentPage'),
             ElevatedButton(
@@ -78,7 +89,7 @@ class _EpisodesScreenState extends State<EpisodesScreen> {
                 });
                 episodesBloc.add(EpisodesEventLoad(page: currentPage));
               },
-              child: Text('Next Page'),
+              child: Text('->'),
             ),
           ],
         ),

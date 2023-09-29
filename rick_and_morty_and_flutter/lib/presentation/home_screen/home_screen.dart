@@ -30,6 +30,7 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(height: 20),
           const Spacer(),
           Center(
+            // ignore: avoid_unnecessary_containers
             child: Container(
               child: Row(
                 children: [
@@ -39,7 +40,7 @@ class HomeScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        SizedBox(height: 40),
+                        const SizedBox(height: 40),
                         CoolTextForRouteButton(
                             text: "Characters", context: context),
                         SizedBox(height: defaultTextSpacer),
