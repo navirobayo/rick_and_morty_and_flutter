@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:rick_and_morty_and_flutter/models/character_data_ui_model.dart';
 import 'package:rick_and_morty_and_flutter/models/search_characters_data_ui_model.dart';
 
-class CharacterDetailScreen extends StatefulWidget {
-  final CharacterDataUiModel character;
+class SearchResultDetailScreen extends StatefulWidget {
+  final SearchCharactersDataUiModel searchCharacter;
 
-  const CharacterDetailScreen({Key? key, required this.character})
+  const SearchResultDetailScreen({Key? key, required this.searchCharacter})
       : super(key: key);
 
   @override
-  State<CharacterDetailScreen> createState() => _CharacterDetailScreenState();
+  State<SearchResultDetailScreen> createState() =>
+      _SearchResultDetailScreenState();
 }
 
-class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
+class _SearchResultDetailScreenState extends State<SearchResultDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,8 +22,8 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Name: ${widget.character.name}'),
-            Text('Status: ${widget.character.status}'),
+            Text('Name: ${widget.searchCharacter.name}'),
+            Text('Status: ${widget.searchCharacter.status}'),
             // Add more details as needed
           ],
         ),

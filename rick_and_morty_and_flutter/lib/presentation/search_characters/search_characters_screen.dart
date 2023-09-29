@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty_and_flutter/blocs/search_characters_bloc/bloc/search_characters_bloc.dart';
+import 'package:rick_and_morty_and_flutter/presentation/character_detail_screen/character_detail_screen.dart';
+import 'package:rick_and_morty_and_flutter/presentation/search_result_detail_screen/search_result_detail_screen.dart';
 
 class SearchCharactersScreen extends StatefulWidget {
   const SearchCharactersScreen({Key? key}) : super(key: key);
@@ -61,6 +63,16 @@ class _SearchCharactersScreenState extends State<SearchCharactersScreen> {
                               Text(successState.searchCharacters[index].name),
                           subtitle:
                               Text(successState.searchCharacters[index].status),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SearchResultDetailScreen(
+                                    searchCharacter:
+                                        state.searchCharacters[index]),
+                              ),
+                            );
+                          },
                         );
                       },
                     );
