@@ -19,6 +19,7 @@ dependencies:
   json_annotation: ^4.8.1
   retrofit_generator: ^7.0.8
   flutter_launcher_icons: ^0.13.1
+  page_transition: ^2.1.0
 
 dev_dependencies:
   flutter_test:
