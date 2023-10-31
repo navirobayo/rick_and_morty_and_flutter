@@ -23,7 +23,7 @@ class _NewHomePageState extends State<NewHomePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: const EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.only(top: 30),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -47,51 +47,16 @@ class _NewHomePageState extends State<NewHomePage> {
                           child: TextField(
                         showCursor: false,
                         decoration: InputDecoration(
-                          hintText: 'Search Plant',
+                          hintText: 'Search Character',
                           border: InputBorder.none,
                           focusedBorder: InputBorder.none,
                         ),
                       )),
-                      Icon(
-                        Icons.mic,
-                        color: Colors.black54.withOpacity(.6),
-                      ),
                     ],
                   ),
                 )
               ],
             ),
-          ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            height: 50.0,
-            width: size.width,
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedIndex = index;
-                        });
-                      },
-                      child: Text(
-                        "test",
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: selectedIndex == index
-                              ? FontWeight.bold
-                              : FontWeight.w300,
-                          color: selectedIndex == index
-                              ? Theme.of(context).primaryColor
-                              : Theme.of(context).focusColor,
-                        ),
-                      ),
-                    ),
-                  );
-                }),
           ),
           SizedBox(
             height: size.height * .3,
@@ -103,8 +68,7 @@ class _NewHomePageState extends State<NewHomePage> {
                       Navigator.push(
                           context,
                           PageTransition(
-                              child: NewCharacterDetailScreen(
-                                  character: state.characters[index]),
+                              child: NewCharacterDetailScreen(),
                               type: PageTransitionType.bottomToTop));
                     },
                     child: Container(
@@ -116,69 +80,35 @@ class _NewHomePageState extends State<NewHomePage> {
                       child: Stack(
                         children: [
                           Positioned(
-                            top: 10,
-                            right: 20,
-                            child: Container(
-                              height: 50,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(50),
-                              ),
-                              child: IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.favorite,
-                                ),
-                                iconSize: 30,
-                              ),
-                            ),
-                          ),
-                          Positioned(
                             left: 50,
                             right: 50,
                             top: 50,
                             bottom: 50,
-                            child: Image.asset("test"),
+                            child: Image.network(
+                                "https://avatars.githubusercontent.com/u/101908819?v=4"),
                           ),
-                          Positioned(
+                          const Positioned(
                             bottom: 15,
                             left: 20,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  widget.character.name,
-                                  style: const TextStyle(
+                                  "Name",
+                                  style: TextStyle(
                                     color: Colors.white70,
                                     fontSize: 16,
                                   ),
                                 ),
                                 Text(
-                                  widget.character.name,
-                                  style: const TextStyle(
+                                  "Status",
+                                  style: TextStyle(
                                     color: Colors.white70,
                                     fontSize: 15,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                               ],
-                            ),
-                          ),
-                          Positioned(
-                            bottom: 15,
-                            right: 20,
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 2),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Text(
-                                r'$',
-                                style: TextStyle(fontSize: 16),
-                              ),
                             ),
                           ),
                         ],
@@ -190,7 +120,7 @@ class _NewHomePageState extends State<NewHomePage> {
           Container(
             padding: const EdgeInsets.only(left: 16, bottom: 20, top: 20),
             child: const Text(
-              'New Plants',
+              'New Episodes',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18.0,
@@ -209,8 +139,7 @@ class _NewHomePageState extends State<NewHomePage> {
                         Navigator.push(
                             context,
                             PageTransition(
-                                child: CharacterDetailScreen(
-                                    character: state.characters[index]),
+                                child: NewCharacterDetailScreen(),
                                 type: PageTransitionType.bottomToTop));
                       },
                       child: CharacterWidget(

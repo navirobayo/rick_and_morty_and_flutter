@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:rick_and_morty_and_flutter/models/character_data_ui_model.dart';
 
 class NewCharacterDetailScreen extends StatefulWidget {
-  final CharacterDataUiModel character;
-  const NewCharacterDetailScreen({Key? key, required this.character})
-      : super(key: key);
+  const NewCharacterDetailScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<NewCharacterDetailScreen> createState() =>
@@ -41,20 +41,6 @@ class _NewCharacterDetailScreenState extends State<NewCharacterDetailScreen> {
                     ),
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    debugPrint('favorite');
-                  },
-                  child: Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    child: IconButton(
-                        onPressed: () {}, icon: const Icon(Icons.favorite)),
-                  ),
-                ),
               ],
             ),
           ),
@@ -73,7 +59,8 @@ class _NewCharacterDetailScreenState extends State<NewCharacterDetailScreen> {
                     left: 0,
                     child: SizedBox(
                       height: 350,
-                      child: Image.asset(widget.character.image),
+                      child: Image.network(
+                          "https://avatars.githubusercontent.com/u/101908819?s=400&u=6124674d2d9b73f276bd6529fb266459d3aac7b8&v=4"),
                     ),
                   ),
                   Positioned(
@@ -87,15 +74,15 @@ class _NewCharacterDetailScreenState extends State<NewCharacterDetailScreen> {
                         children: [
                           CharacterDetail(
                             title: 'Name',
-                            characterDetail: widget.character.name,
+                            characterDetail: "widget.character.name",
                           ),
                           CharacterDetail(
                             title: 'Status',
-                            characterDetail: widget.character.status,
+                            characterDetail: "widget.character.status",
                           ),
                           CharacterDetail(
                             title: 'Species',
-                            characterDetail: widget.character.species,
+                            characterDetail: "widget.character.species",
                           ),
                         ],
                       ),
@@ -130,7 +117,7 @@ class _NewCharacterDetailScreenState extends State<NewCharacterDetailScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            widget.character.name,
+                            "widget.character.name",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 30.0,
@@ -151,7 +138,7 @@ class _NewCharacterDetailScreenState extends State<NewCharacterDetailScreen> {
                       Row(
                         children: [
                           Text(
-                            widget.character.status,
+                            "widget.character.status",
                             style: TextStyle(
                               fontSize: 30.0,
                             ),
@@ -182,55 +169,6 @@ class _NewCharacterDetailScreenState extends State<NewCharacterDetailScreen> {
             ),
           ),
         ],
-      ),
-      floatingActionButton: SizedBox(
-        width: size.width * .9,
-        height: 50,
-        child: Row(
-          children: [
-            Container(
-              height: 50,
-              width: 50,
-              child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.shopping_cart,
-                  )),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: const Offset(0, 1),
-                      blurRadius: 5,
-                    ),
-                  ]),
-            ),
-            const SizedBox(
-              width: 20,
-            ),
-            Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
-                      BoxShadow(
-                        offset: const Offset(0, 1),
-                        blurRadius: 5,
-                      )
-                    ]),
-                child: const Center(
-                  child: Text(
-                    'BUY NOW',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }

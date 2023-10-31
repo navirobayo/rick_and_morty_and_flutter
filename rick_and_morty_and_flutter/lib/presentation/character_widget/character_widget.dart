@@ -3,6 +3,8 @@ import 'package:page_transition/page_transition.dart';
 import 'package:rick_and_morty_and_flutter/presentation/character_detail_screen/character_detail_screen.dart';
 import 'package:rick_and_morty_and_flutter/presentation/new_character_detail_screen/new_character_detail_screen.dart';
 
+//! Not clear what is this.
+
 class CharacterWidget extends StatelessWidget {
   const CharacterWidget({
     Key? key,
