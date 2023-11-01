@@ -19,11 +19,17 @@ class CharacterDetailScreen extends StatefulWidget {
 class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   bool _isExpanded = false;
   List<String> episodeNames = []; // List to store episode names
-
+  bool _isMounted = true;
   @override
   void initState() {
     super.initState();
     loadEpisodeNames(); // Fetch episode names when the screen loads
+  }
+
+  @override
+  void dispose() {
+    _isMounted = false; // Set _isMounted to false when the widget is disposed
+    super.dispose();
   }
 
   // Function to fetch episode names
@@ -34,12 +40,16 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
     for (String url in episodeUrls) {
       try {
         Response response = await dio.get(url);
-        final episodeName = response.data['name'];
-        setState(() {
-          episodeNames.add(episodeName);
-        });
+        if (_isMounted) {
+          final episodeName = response.data['name'];
+          setState(() {
+            episodeNames.add(episodeName);
+          });
+        }
       } catch (e) {
-        print('Error fetching episode details: $e');
+        if (_isMounted) {
+          print('Error fetching episode details: $e');
+        }
       }
     }
   }

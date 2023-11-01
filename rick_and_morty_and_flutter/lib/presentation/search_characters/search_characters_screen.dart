@@ -14,6 +14,7 @@ class SearchCharactersScreen extends StatefulWidget {
 
 class _SearchCharactersScreenState extends State<SearchCharactersScreen> {
   final SearchCharactersBloc searchCharactersBloc = SearchCharactersBloc();
+  bool hasQuery = false;
 
   @override
   void initState() {
@@ -24,18 +25,32 @@ class _SearchCharactersScreenState extends State<SearchCharactersScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Search Characters')),
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(16),
-            child: TextField(
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(), hintText: 'Search ...'),
-              onChanged: (query) {
-                searchCharactersBloc
-                    .add(SearchCharactersEventLoad(query: query));
-              },
+            padding: const EdgeInsets.all(24),
+            child: Row(
+              children: [
+                GestureDetector(
+                  child: Icon(Icons.arrow_back),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                Expanded(
+                  child: TextField(
+                    decoration: const InputDecoration(
+                        border: OutlineInputBorder(), hintText: 'Search ...'),
+                    onChanged: (query) {
+                      setState(() {
+                        hasQuery = query.isNotEmpty;
+                      });
+                      searchCharactersBloc
+                          .add(SearchCharactersEventLoad(query: query));
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
           Expanded(
@@ -49,34 +64,41 @@ class _SearchCharactersScreenState extends State<SearchCharactersScreen> {
               builder: (context, state) {
                 switch (state.runtimeType) {
                   case SearchCharactersFetchingLoading:
-                    return const Center(child: CircularProgressIndicator());
+                    return hasQuery
+                        ? const Center(child: CircularProgressIndicator())
+                        : Center(child: Text('Cool Icon here - No search'));
                   case SearchCharactersFetchingError:
                     final errorState = state as SearchCharactersFetchingError;
                     return Center(child: Text(errorState.errorMessage));
                   case SearchCharactersFetchingSuccess:
                     final successState =
                         state as SearchCharactersFetchingSuccess;
-                    return ListView.builder(
-                      itemCount: successState.searchCharacters.length,
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          title:
-                              Text(successState.searchCharacters[index].name),
-                          subtitle: Text(
-                              successState.searchCharacters[index].species),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => SearchResultDetailScreen(
-                                    searchCharacter:
-                                        state.searchCharacters[index]),
-                              ),
-                            );
-                          },
-                        );
-                      },
-                    );
+                    return hasQuery
+                        ? ListView.builder(
+                            itemCount: successState.searchCharacters.length,
+                            itemBuilder: (context, index) {
+                              return ListTile(
+                                title: Text(
+                                    successState.searchCharacters[index].name),
+                                subtitle: Text(successState
+                                    .searchCharacters[index].species),
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          SearchResultDetailScreen(
+                                              searchCharacter: state
+                                                  .searchCharacters[index]),
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                          )
+                        : Center(
+                            child: Text("Cool Icon here - No search"),
+                          );
                   default:
                     return Center(child: CircularProgressIndicator());
                 }

@@ -20,11 +20,18 @@ class EpisodeDetailScreen extends StatefulWidget {
 
 class _EpisodeDetailScreenState extends State<EpisodeDetailScreen> {
   List<String> characterNames = []; // List to store character names
+  bool _isMounted = true;
 
   @override
   void initState() {
     super.initState();
     loadCharacterNames(); // Fetch character names when the screen loads
+  }
+
+  @override
+  void dispose() {
+    _isMounted = false;
+    super.dispose();
   }
 
   // Function to fetch character names
@@ -35,10 +42,12 @@ class _EpisodeDetailScreenState extends State<EpisodeDetailScreen> {
     for (String url in urls) {
       try {
         Response response = await dio.get(url);
-        final characterName = response.data['name'];
-        setState(() {
-          characterNames.add(characterName);
-        });
+        if (_isMounted) {
+          final characterName = response.data['name'];
+          setState(() {
+            characterNames.add(characterName);
+          });
+        }
       } catch (e) {
         print('Error fetching character details: $e');
       }
