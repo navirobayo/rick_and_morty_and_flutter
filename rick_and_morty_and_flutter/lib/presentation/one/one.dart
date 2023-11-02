@@ -5,7 +5,6 @@ import 'package:rick_and_morty_and_flutter/blocs/episodes_bloc/bloc/episodes_blo
 import 'package:rick_and_morty_and_flutter/blocs/search_characters_bloc/bloc/search_characters_bloc.dart';
 import 'package:rick_and_morty_and_flutter/presentation/search_characters/search_characters_screen.dart';
 import 'package:rick_and_morty_and_flutter/presentation/episode_detail_screen/episode_detail_screen.dart';
-
 import '../character_detail_screen/character_detail_screen.dart';
 
 class One extends StatefulWidget {
@@ -68,10 +67,10 @@ class _OneState extends State<One> {
                 )
               ],
             ),
-          ),
+          ), //! Random Characters Feature starts here.
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12),
-            height: 50.0,
+            height: 400,
             width: size.width,
             child: BlocConsumer<CharactersBloc, CharactersState>(
               bloc: charactersBloc,
@@ -97,9 +96,38 @@ class _OneState extends State<One> {
                           padding: const EdgeInsets.all(8.0),
                           child: GestureDetector(
                               child: Container(
-                                decoration: BoxDecoration(color: Colors.white),
-                                child: Text(state.characters[index].name),
+                                decoration: BoxDecoration(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .primaryContainer,
+                                    borderRadius: BorderRadius.circular(20)),
                                 width: 200,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Container(
+                                        width: 150,
+                                        height: 150,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.rectangle,
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: NetworkImage(
+                                                state.characters[index].image),
+                                          ),
+                                        ),
+                                      ),
+                                      Text(state.characters[index].name),
+                                      Text(state.characters[index].status),
+                                      Text(state.characters[index].species),
+                                    ],
+                                  ),
+                                ),
                               ),
                               onTap: () {
                                 Navigator.push(
@@ -119,7 +147,9 @@ class _OneState extends State<One> {
                 }
               },
             ),
-          ),
+          ), //! Random Characters Feature ends here.
+          //*
+          //! Random Episodes Feature starts here.
           Container(
             height: 80,
             child: BlocConsumer<EpisodesBloc, EpisodesState>(
@@ -160,8 +190,12 @@ class _OneState extends State<One> {
                 }
               },
             ),
-          ),
+          ), //! Random Episodes Feature ends here.
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.gamepad),
+        onPressed: () {},
       ),
     );
   }
