@@ -8,7 +8,8 @@ import 'package:rick_and_morty_and_flutter/presentation/episode_detail_screen/ep
 import '../character_detail_screen/character_detail_screen.dart';
 
 class One extends StatefulWidget {
-  const One({super.key});
+  final String username;
+  const One({super.key, required this.username});
 
   @override
   State<One> createState() => _OneState();
@@ -34,43 +35,34 @@ class _OneState extends State<One> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(
+            height: 25,
+          ),
+          Row(
+            children: [
+              SizedBox(width: 20),
+              Text("Wubba Lubba Dub Dub!, ${widget.username}"),
+              Spacer(),
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => SearchCharactersScreen()),
+                  );
+                },
+                icon: Icon(Icons.search),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.settings),
+              )
+            ],
+          ),
+          //! Random Characters Feature starts here.
           Container(
-            padding: const EdgeInsets.only(top: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  width: size.width,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.search, color: Colors.black),
-                      Expanded(
-                        child: GestureDetector(
-                          child: Container(
-                            child: Text("Search Characters"),
-                          ),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      SearchCharactersScreen()),
-                            );
-                          },
-                        ),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ), //! Random Characters Feature starts here.
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            height: 400,
+            padding: const EdgeInsets.symmetric(horizontal: 5),
+            height: 300,
             width: size.width,
             child: BlocConsumer<CharactersBloc, CharactersState>(
               bloc: charactersBloc,
@@ -93,7 +85,7 @@ class _OneState extends State<One> {
                       itemCount: successstate.characters.length,
                       itemBuilder: (context, index) {
                         return Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(10),
                           child: GestureDetector(
                               child: Container(
                                 decoration: BoxDecoration(
@@ -103,7 +95,7 @@ class _OneState extends State<One> {
                                     borderRadius: BorderRadius.circular(20)),
                                 width: 200,
                                 child: Padding(
-                                  padding: const EdgeInsets.all(20),
+                                  padding: const EdgeInsets.all(10),
                                   child: Column(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
@@ -123,8 +115,8 @@ class _OneState extends State<One> {
                                         ),
                                       ),
                                       Text(state.characters[index].name),
-                                      Text(state.characters[index].status),
-                                      Text(state.characters[index].species),
+                                      Text(
+                                          "${state.characters[index].status} - ${state.characters[index].species}"),
                                     ],
                                   ),
                                 ),
@@ -149,52 +141,64 @@ class _OneState extends State<One> {
             ),
           ), //! Random Characters Feature ends here.
           //*
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Text("Hey ${widget.username}, check out these episodes."),
+          ),
           //! Random Episodes Feature starts here.
-          Container(
-            height: 80,
-            child: BlocConsumer<EpisodesBloc, EpisodesState>(
-              bloc: episodesBloc,
-              listenWhen: (previous, current) => current is EpisodesState,
-              buildWhen: (previous, current) => current is! EpisodesActionState,
-              listener: (context, state) {},
-              builder: (context, state) {
-                switch (state.runtimeType) {
-                  case EpisodesFetchingLoading:
-                    return const Center(child: CircularProgressIndicator());
-                  case EpisodesFetchingError:
-                    final errorstate = state as EpisodesFetchingError;
-                    return Center(child: Text(errorstate.errorMessage));
-                  case EpisodesFetchingSuccess:
-                    final successstate = state as EpisodesFetchingSuccess;
-                    return ListView.builder(
-                      itemCount: successstate.episodes.length,
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(state.episodes[index].name),
-                          subtitle: Text(state.episodes[index].air_date),
-                          trailing: Text(state.episodes[index].episode),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => EpisodeDetailScreen(
-                                    episode: state.episodes[index]),
-                              ),
-                            );
-                          },
-                        );
-                      },
-                    );
-                  default:
-                    return Center(child: CircularProgressIndicator());
-                }
-              },
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: 250,
+              child: BlocConsumer<EpisodesBloc, EpisodesState>(
+                bloc: episodesBloc,
+                listenWhen: (previous, current) => current is EpisodesState,
+                buildWhen: (previous, current) =>
+                    current is! EpisodesActionState,
+                listener: (context, state) {},
+                builder: (context, state) {
+                  switch (state.runtimeType) {
+                    case EpisodesFetchingLoading:
+                      return const Center(child: CircularProgressIndicator());
+                    case EpisodesFetchingError:
+                      final errorstate = state as EpisodesFetchingError;
+                      return Center(child: Text(errorstate.errorMessage));
+                    case EpisodesFetchingSuccess:
+                      final successstate = state as EpisodesFetchingSuccess;
+                      return ListView.builder(
+                        itemCount: successstate.episodes.length,
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                            title: Text(state.episodes[index].name),
+                            subtitle: Text(state.episodes[index].air_date),
+                            trailing: Text(state.episodes[index].episode),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => EpisodeDetailScreen(
+                                      episode: state.episodes[index]),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      );
+                    default:
+                      return Center(child: CircularProgressIndicator());
+                  }
+                },
+              ),
             ),
           ), //! Random Episodes Feature ends here.
+          Padding(
+            padding: const EdgeInsets.all(30),
+            child: Text("!!! Nuclear Button !!! <<< DO NOT PRESS >>>"),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.gamepad),
+        child: Icon(Icons.cake),
         onPressed: () {},
       ),
     );
