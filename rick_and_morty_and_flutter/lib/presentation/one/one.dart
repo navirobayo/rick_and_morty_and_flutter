@@ -23,7 +23,7 @@ class _OneState extends State<One> {
   @override
   void initState() {
     searchCharactersBloc.add(SearchCharactersEventLoad());
-    charactersBloc.add(CharactersEventLoad());
+    charactersBloc.add(CharactersEventLoad.random());
     episodesBloc.add(EpisodesEventLoad());
     super.initState();
   }
@@ -199,7 +199,9 @@ class _OneState extends State<One> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.cake),
-        onPressed: () {},
+        onPressed: () {
+          charactersBloc.add(CharactersEventLoad.random());
+        },
       ),
     );
   }
