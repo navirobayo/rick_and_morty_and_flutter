@@ -42,7 +42,7 @@ class _OneState extends State<One> {
           Row(
             children: [
               SizedBox(width: 20),
-              Text("Wubba Lubba Dub Dub!, ${widget.username}"),
+              Text("Multidimensional Visualizer Ver. 2.0.0"),
               Spacer(),
               IconButton(
                 onPressed: () {
@@ -185,7 +185,7 @@ class _OneState extends State<One> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              height: 220,
+              height: 224,
               child: BlocConsumer<EpisodesBloc, EpisodesState>(
                 bloc: episodesBloc,
                 listenWhen: (previous, current) => current is EpisodesState,
@@ -229,7 +229,7 @@ class _OneState extends State<One> {
           ), //! Random Episodes Feature ends here.
           Padding(
             padding: const EdgeInsets.all(30),
-            child: Text("!!! Nuclear Button !!! <<< DO NOT PRESS >>>"),
+            child: Text("Wubba Lubba Dub Dub!, ${widget.username}"),
           ),
         ],
       ),
