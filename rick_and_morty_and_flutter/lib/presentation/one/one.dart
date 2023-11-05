@@ -19,6 +19,7 @@ class _OneState extends State<One> {
   final SearchCharactersBloc searchCharactersBloc = SearchCharactersBloc();
   final CharactersBloc charactersBloc = CharactersBloc();
   final EpisodesBloc episodesBloc = EpisodesBloc();
+  int currentPage = 1;
 
   @override
   void initState() {
@@ -143,13 +144,48 @@ class _OneState extends State<One> {
           //*
           Padding(
             padding: const EdgeInsets.all(20),
-            child: Text("Hey ${widget.username}, check out these episodes."),
+            child: Row(
+              children: [
+                Text("Some episodes for you:"),
+                Spacer(),
+                IconButton(
+                  onPressed: () {
+                    if (currentPage > 1) {
+                      setState(() {
+                        currentPage--;
+                      });
+                      episodesBloc.add(EpisodesEventLoad(page: currentPage));
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('You are in page 1!')),
+                      );
+                    }
+                  },
+                  icon: Icon(Icons.arrow_back),
+                ),
+                Text('$currentPage'),
+                IconButton(
+                  onPressed: () {
+                    if (currentPage >= 3) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text('No more pages cowboy')));
+                    } else {
+                      setState(() {
+                        currentPage++;
+                      });
+                      episodesBloc.add(EpisodesEventLoad(page: currentPage));
+                    }
+                  },
+                  icon: Icon(Icons.arrow_forward),
+                ),
+              ],
+            ),
           ),
           //! Random Episodes Feature starts here.
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              height: 250,
+              height: 220,
               child: BlocConsumer<EpisodesBloc, EpisodesState>(
                 bloc: episodesBloc,
                 listenWhen: (previous, current) => current is EpisodesState,
@@ -198,9 +234,11 @@ class _OneState extends State<One> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.cake),
+        child: Icon(Icons.gamepad),
         onPressed: () {
           charactersBloc.add(CharactersEventLoad.random());
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text('R A N D O M I Z E D')));
         },
       ),
     );
