@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty_and_flutter/blocs/search_characters_bloc/bloc/search_characters_bloc.dart';
+import 'package:rick_and_morty_and_flutter/persistence/rick_and_morty_custom_icons/ra_m_custom_icons_icons.dart';
 import 'package:rick_and_morty_and_flutter/presentation/search_result_detail_screen/search_result_detail_screen.dart';
 
 //* Character search feature.
@@ -37,10 +38,10 @@ class _SearchCharactersScreenState extends State<SearchCharactersScreen> {
                     Navigator.pop(context);
                   },
                 ),
+                SizedBox(width: 20),
                 Expanded(
                   child: TextField(
-                    decoration: const InputDecoration(
-                        border: OutlineInputBorder(), hintText: 'Search ...'),
+                    decoration: const InputDecoration(hintText: 'Search ...'),
                     onChanged: (query) {
                       setState(() {
                         hasQuery = query.isNotEmpty;
@@ -66,7 +67,23 @@ class _SearchCharactersScreenState extends State<SearchCharactersScreen> {
                   case SearchCharactersFetchingLoading:
                     return hasQuery
                         ? const Center(child: CircularProgressIndicator())
-                        : Center(child: Text('Cool Icon here - No search'));
+                        : Center(
+                            child: Column(
+                            children: [
+                              Spacer(),
+                              Icon(RaMCustomIcons.mortyface1,
+                                  size: 150,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onBackground),
+                              Text("No search",
+                                  style: TextStyle(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onBackground)),
+                              Spacer(),
+                            ],
+                          ));
                   case SearchCharactersFetchingError:
                     final errorState = state as SearchCharactersFetchingError;
                     return Center(child: Text(errorState.errorMessage));
@@ -97,7 +114,22 @@ class _SearchCharactersScreenState extends State<SearchCharactersScreen> {
                             },
                           )
                         : Center(
-                            child: Text("Cool Icon here - No search"),
+                            child: Column(
+                              children: [
+                                Spacer(),
+                                Icon(RaMCustomIcons.mortyface1,
+                                    size: 150,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onBackground),
+                                Text("No search",
+                                    style: TextStyle(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onBackground)),
+                                Spacer(),
+                              ],
+                            ),
                           );
                   default:
                     return Center(child: CircularProgressIndicator());

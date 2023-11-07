@@ -20,6 +20,7 @@ dependencies:
   retrofit_generator: ^7.0.8
   flutter_launcher_icons: ^0.13.1
   page_transition: ^2.1.0
+  flutter_offline: ^3.0.0
 
 dev_dependencies:
   flutter_test:
