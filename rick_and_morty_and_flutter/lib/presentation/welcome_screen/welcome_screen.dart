@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty_and_flutter/persistence/strings/global_strings.dart';
-import 'package:rick_and_morty_and_flutter/presentation/home_screen/home_screen.dart';
 import 'package:rick_and_morty_and_flutter/persistence/rick_and_morty_custom_icons/ra_m_custom_icons_icons.dart';
-import 'package:rick_and_morty_and_flutter/presentation/home_screen/new_home_screen.dart';
 import 'package:rick_and_morty_and_flutter/presentation/one/one.dart';
 
 //* Welcome screen.
@@ -17,22 +15,21 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      appBar: AppBar(
-        title: const Text(appName),
-      ),
       body: Center(
         child: Column(
           children: [
             const SizedBox(
-              height: 50,
+              height: 100,
             ),
-            SizedBox(height: 200, child: Image.asset("images/cover.png")),
+            SizedBox(height: 200, child: Image.asset("images/cover4.png")),
+            const SizedBox(
+              height: 30,
+            ),
             SizedBox(
               width: 300,
               child: TextField(
                 controller: _nameController,
                 decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
                   labelText: 'Enter a username',
                 ),
               ),

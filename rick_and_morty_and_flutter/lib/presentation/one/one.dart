@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty_and_flutter/blocs/characters_bloc/characters_bloc.dart';
 import 'package:rick_and_morty_and_flutter/blocs/episodes_bloc/bloc/episodes_bloc.dart';
-import 'package:rick_and_morty_and_flutter/blocs/search_characters_bloc/bloc/search_characters_bloc.dart';
+import 'package:rick_and_morty_and_flutter/presentation/about_screen/about_screen.dart';
 import 'package:rick_and_morty_and_flutter/presentation/search_characters/search_characters_screen.dart';
 import 'package:rick_and_morty_and_flutter/presentation/episode_detail_screen/episode_detail_screen.dart';
 import '../character_detail_screen/character_detail_screen.dart';
@@ -16,17 +16,16 @@ class One extends StatefulWidget {
 }
 
 class _OneState extends State<One> {
-  final SearchCharactersBloc searchCharactersBloc = SearchCharactersBloc();
   final CharactersBloc charactersBloc = CharactersBloc();
   final EpisodesBloc episodesBloc = EpisodesBloc();
+
   int currentPage = 1;
 
   @override
   void initState() {
-    searchCharactersBloc.add(SearchCharactersEventLoad());
+    super.initState();
     charactersBloc.add(CharactersEventLoad.random());
     episodesBloc.add(EpisodesEventLoad());
-    super.initState();
   }
 
   @override
@@ -55,7 +54,12 @@ class _OneState extends State<One> {
                 icon: Icon(Icons.search),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AboutScreen()),
+                  );
+                },
                 icon: Icon(Icons.settings),
               )
             ],
