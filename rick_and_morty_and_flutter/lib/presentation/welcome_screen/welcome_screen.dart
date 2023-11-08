@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty_and_flutter/persistence/strings/global_strings.dart';
 import 'package:rick_and_morty_and_flutter/persistence/rick_and_morty_custom_icons/ra_m_custom_icons_icons.dart';
-import 'package:rick_and_morty_and_flutter/presentation/one/one.dart';
+import 'package:rick_and_morty_and_flutter/presentation/main_menu/main_menu.dart';
 
 //* Welcome screen.
 
@@ -45,7 +44,7 @@ class WelcomeScreen extends StatelessWidget {
           final username = _nameController.text;
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => One(
+              builder: (context) => MainMenu(
                 username: username,
               ),
             ),

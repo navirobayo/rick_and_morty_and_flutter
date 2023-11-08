@@ -1,3 +1,4 @@
+import 'package:connectivity_plus_widget/connectivity/connectivity_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty_and_flutter/blocs/characters_bloc/characters_bloc.dart';
@@ -7,15 +8,15 @@ import 'package:rick_and_morty_and_flutter/presentation/search_characters/search
 import 'package:rick_and_morty_and_flutter/presentation/episode_detail_screen/episode_detail_screen.dart';
 import '../character_detail_screen/character_detail_screen.dart';
 
-class One extends StatefulWidget {
+class MainMenu extends StatefulWidget {
   final String username;
-  const One({super.key, required this.username});
+  const MainMenu({super.key, required this.username});
 
   @override
-  State<One> createState() => _OneState();
+  State<MainMenu> createState() => _MainMenuState();
 }
 
-class _OneState extends State<One> {
+class _MainMenuState extends State<MainMenu> {
   final CharactersBloc charactersBloc = CharactersBloc();
   final EpisodesBloc episodesBloc = EpisodesBloc();
 
@@ -60,9 +61,15 @@ class _OneState extends State<One> {
                     MaterialPageRoute(builder: (context) => AboutScreen()),
                   );
                 },
-                icon: Icon(Icons.settings),
+                icon: Icon(Icons.texture),
               )
             ],
+          ),
+          ConnectivityPlusWidget(
+            backgroundColor: Colors.red,
+            height: 40,
+            marquee: true,
+            textStyle: const TextStyle(color: Colors.white),
           ),
           //! Random Characters Feature starts here.
           Container(
@@ -241,6 +248,7 @@ class _OneState extends State<One> {
         child: Icon(Icons.gamepad),
         onPressed: () {
           charactersBloc.add(CharactersEventLoad.random());
+          episodesBloc.add(EpisodesEventLoad());
           ScaffoldMessenger.of(context)
               .showSnackBar(SnackBar(content: Text('R A N D O M I Z E D')));
         },

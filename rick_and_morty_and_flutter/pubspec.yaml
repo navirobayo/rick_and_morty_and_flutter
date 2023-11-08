@@ -20,7 +20,7 @@ dependencies:
   retrofit_generator: ^7.0.8
   flutter_launcher_icons: ^0.13.1
   page_transition: ^2.1.0
-  connectivity_plus: ^5.0.1
+  connectivity_plus_widget: ^1.0.5
 
 dev_dependencies:
   flutter_test:

@@ -1,3 +1,4 @@
+import 'package:connectivity_plus_widget/connectivity/connectivity_plus_service.dart';
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty_and_flutter/persistence/offline_themes/flutter_atari_theme.dart';
 import 'package:rick_and_morty_and_flutter/persistence/strings/global_strings.dart';
@@ -38,7 +39,9 @@ import 'package:rick_and_morty_and_flutter/presentation/welcome_screen/welcome_s
 // Some of the files will have comments clarifying some details. Enjoy!
 
 //! The app starts here.
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  ConnectivityPlusService().initConnectivityService();
   runApp(const MyApp());
 }
 
