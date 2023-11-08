@@ -41,9 +41,7 @@ class _MainMenuState extends State<MainMenu> {
           ),
           Row(
             children: [
-              SizedBox(width: 20),
               Text("Multidimensional Visualizer Ver. 2.0.0"),
-              Spacer(),
               IconButton(
                 onPressed: () {
                   Navigator.push(
