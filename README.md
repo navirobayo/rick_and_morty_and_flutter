@@ -1,46 +1,72 @@
 # Rick And Morty And Flutter
 
-
 <p align="center">
   <img src="https://github.com/navirobayo/RickAndMortyAndFlutter/blob/main/repoassets/cover3.png" width="350" title="hover text">
 </p>
 
-[English](https://github.com/navirobayo/RickAndMortyAndFlutter/edit/main/README.md#caracter%C3%ADsticas-principales)
-[Spanish](https://github.com/navirobayo/RickAndMortyAndFlutter/edit/main/README.md#caracter%C3%ADsticas-principales)
+<p align="center">
+  APKs:
+  <br>
+  <br>
+  <a href="https://github.com/navirobayo/RickAndMortyAndFlutter/blob/main/repoassets/apks/rick_and_morty_api_1.0.0.apk">1.0.0</a>
+  <br>
+  <br>
+  <a href="https://github.com/navirobayo/RickAndMortyAndFlutter/blob/main/repoassets/apks/rick_and_morty_api_2.0.0.apk">2.0.0</a>
+</p>
 
-# English documentation:
+<p align="center">  
+  Docs:
+  <br>
+  <br>
+  <a href="https://github.com/navirobayo/RickAndMortyAndFlutter/blob/main/README.md#ENG">English</a>
+  <br>
+  <br>
+  <a href="https://github.com/navirobayo/RickAndMortyAndFlutter/edit/main/README.md#ESP">Español</a>
+</p>
 
-# Documentación en Español:
+# ESP
 
-Este documento está diseñado para explicar la estructura de la aplicación la cual utiliza la información disponible en la API de Rick y Morty. Si quieres instalar la aplicación en tu celular puedes hacerlo directamente con el archivo .apk que puedes descargar acá: 
-[[+]](https://github.com/navirobayo/RickAndMortyAndFlutter/blob/main/repoassets/app-release.apk)
+# Acerca de la app: 
 
-La aplicación está escrita en inglés, principalmente porque la información de la API también lo está. Los comentarios dentro de la aplicación también están en ingles y en mi caso he creado la aplicación con Visual Studio Code, donde utilizo la extensión "BetterComments" para resaltar ciertos comentarios. 
+Este documento explica la estructura de la aplicacion. La app utiliza la información disponible en la API de Rick y Morty. Disponible acá: [+](https://rickandmortyapi.com/)
 
-# Características principales:
 
-- Lista o exploración de personajes.
-  
-- Lista o exploración de episodios.
-  
-- Búsqueda de personajes por nombre.
+La aplicación está escrita en inglés, principalmente porque la información de la API también lo está. Los comentarios dentro del código fuente también están en inglés. He creado la aplicación con Visual Studio Code donde utilizo la extensión "BetterComments" para resaltar ciertos comentarios. La aplicación utiliza el patrón BloC como solución al manejo de estado de todos sus componentes. A continuación encontrarás una descripcion de sus componentes y las caracterísitcas de cada una de sus versiones. 
 
-# Estructura de las carpetas:
+# Acerca de las carpetas:
 
-- blocs: Contiene los "blocs" que se utulizan en las tres funciones principales de la app. 
+- blocs: Contiene los "Blocs" que se utlizan en las diferentes funcionalidades de la app. 
 
 - models: Contiene los archivos que convierten la información JSON a código DART.
 
-- persistence: Contiene archivos que son utilizados en toda la aplicación.
+- persistence: Contiene archivos que son utilizados por toda la aplicación (varias funcionalidades) de manera constante (persistente). 
 
 - presentation: Contiene la interfaz de la aplicación (UI).
 
-- repository: Contiene los archivos que se solicitan y reciben información de la API
+- repository: Contiene los archivos que solicitan y reciben información de la API. (Helpers) 
 
-# Acerca de la app:
+# Ver 1.0.0 - Características principales:
 
-La app se construyo desde una aproximación BloC, epecialmente para manejar la capa de red. (Network layer) 
+- Lista de personajes.
+  
+- Lista de episodios.
+  
+- Búsqueda de personajes por nombre.
 
-Los "Blocs" se utilizan en las funciones principales de la app, cada funcionalidad tiene un "Bloc" diferente. 
+- Interfaz minimalista.
 
-Algunos de los archivos tienen comentarios clarificando algunos detalles. ¡Que disfrutes!
+# Ver 2.0.0 - Características principales:
+
+- Mismas funcionalidades que en la Versión 1.0.0 todo en una interfaz más compacta. (Una sola página.)
+  
+- Detección de red. La app detecta si el usuario está conectado a su Wi-Fi/Datos Móviles o no. 
+  
+- Selección aleatoria de página. 
+
+- Icono añadido para cuando no existe texto dentro del diálogo de búsqueda.
+
+# Contrubuciones: 
+
+Cualquier tipo de contribución es bienvenida. Si quieres contruibuir y proponer tu versión de la app no dudes en enviar tu Pull Request en la rama principal (main branch). 
+
+¡Disfruta!
