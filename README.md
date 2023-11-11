@@ -31,7 +31,7 @@
 Este documento explica la estructura de la aplicacion. La app utiliza la información disponible en la API de Rick y Morty. Disponible acá: [+](https://rickandmortyapi.com/)
 
 
-La aplicación está escrita en inglés, principalmente porque la información de la API también lo está. Los comentarios dentro del código fuente también están en inglés. He creado la aplicación con Visual Studio Code donde utilizo la extensión "BetterComments" para resaltar ciertos comentarios. La aplicación utiliza el patrón BloC como solución al manejo de estado de todos sus componentes. A continuación encontrarás una descripcion de sus componentes y las caracterísitcas de cada una de sus versiones. 
+La aplicación está escrita en inglés, principalmente porque la información de la API también lo está. Los comentarios dentro del código fuente también están en inglés. He creado la aplicación con Visual Studio Code donde utilizo la extensión "Better Comments" para resaltar ciertos comentarios. La aplicación utiliza el patrón BloC como solución al manejo de estado de todos sus componentes. A continuación encontrarás una descripcion de sus componentes y las caracterísitcas de cada una de sus versiones. 
 
 # Acerca de las carpetas:
 
