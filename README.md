@@ -65,7 +65,7 @@ La aplicación está escrita en inglés, principalmente porque la información d
 
 - Icono añadido para cuando no existe texto dentro del diálogo de búsqueda.
 
-# Contrubuciones: 
+# Contribuciones: 
 
 Cualquier tipo de contribución es bienvenida. Si quieres contruibuir y proponer tu versión de la app no dudes en enviar tu Pull Request en la rama principal (main branch). 
 
