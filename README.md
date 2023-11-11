@@ -5,6 +5,13 @@
   <img src="https://github.com/navirobayo/RickAndMortyAndFlutter/blob/main/repoassets/cover3.png" width="350" title="hover text">
 </p>
 
+[English](https://github.com/navirobayo/RickAndMortyAndFlutter/edit/main/README.md#caracter%C3%ADsticas-principales)
+[Spanish](https://github.com/navirobayo/RickAndMortyAndFlutter/edit/main/README.md#caracter%C3%ADsticas-principales)
+
+# English documentation:
+
+# Documentación en Español:
+
 Este documento está diseñado para explicar la estructura de la aplicación la cual utiliza la información disponible en la API de Rick y Morty. Si quieres instalar la aplicación en tu celular puedes hacerlo directamente con el archivo .apk que puedes descargar acá: 
 [[+]](https://github.com/navirobayo/RickAndMortyAndFlutter/blob/main/repoassets/app-release.apk)
 
