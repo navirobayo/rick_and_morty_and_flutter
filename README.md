@@ -1,7 +1,7 @@
 # Rick And Morty And Flutter
 
 <p align="center">
-  <img src="https://github.com/navirobayo/RickAndMortyAndFlutter/blob/main/repoassets/cover3.png" width="350" title="hover text">
+  <img src="https://github.com/navirobayo/RickAndMortyAndFlutter/blob/main/repoassets/images/repo_cover.png" width="350" title="hover text">
 </p>
 
 <p align="center">
@@ -21,7 +21,7 @@
   <a href="https://github.com/navirobayo/RickAndMortyAndFlutter/blob/main/README.md#ENG">English</a>
   <br>
   <br>
-  <a href="https://github.com/navirobayo/RickAndMortyAndFlutter/edit/main/README.md#ESP">Español</a>
+  <a href="https://github.com/navirobayo/RickAndMortyAndFlutter/blob/main/README.md#ESP">Español</a>
 </p>
 
 # ESP
