@@ -67,6 +67,6 @@ La aplicación está escrita en inglés, principalmente porque la información d
 
 # Contribuciones: 
 
-Cualquier tipo de contribución es bienvenida. Si quieres contruibuir y proponer tu versión de la app no dudes en enviar tu Pull Request en la rama principal (main branch). 
+Cualquier tipo de contribución es bienvenida. Si quieres contruibuir y proponer tu versión de la app no dudes en enviar tu Pull Request a la rama principal (main branch). 
 
 ¡Disfruta!
