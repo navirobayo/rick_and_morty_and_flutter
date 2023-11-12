@@ -75,7 +75,7 @@ Cualquier tipo de contribución es bienvenida. Si quieres contruibuir y proponer
 
 # About the app: 
 
-This document explains the structure of the aplication. This app utilizes the information available in the Rick and Morty API. Available at: [+](https://rickandmortyapi.com/)
+This document explains the structure of the aplication. This app utilizes the information from the Rick and Morty API. Available at: [+](https://rickandmortyapi.com/)
 
 
 The app is written in English, mainly because the API information is also as such. The source code comments are also in English. I've created the app with Visual Studio Code where I use the extension "Better Comments" to highlight information. The app uses the BloC library as the state management solution. Below you will find a description of the app components and the features of each of it versions. 
