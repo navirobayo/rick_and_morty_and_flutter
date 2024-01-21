@@ -1,7 +1,7 @@
 # Rick And Morty And Flutter
 
 <p align="center">
-  <img src="https://github.com/navirobayo/RickAndMortyAndFlutter/blob/main/repoassets/images/repo_cover.png" width="350" title="hover text">
+  <img src="https://github.com/navirobayo/rick_and_morty_and_flutter/blob/main/github_assets/images/repo_cover.png" width="350" title="hover text">
 </p>
 
 <p align="center">
